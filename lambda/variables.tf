@@ -2,6 +2,15 @@ variable "name" {
   description = "Name of the Lambda"
 }
 
+variable "runtime" {
+  type = string
+}
+
+variable "source_dir" {
+  description = "Path to the source code for the Lambda"
+  type        = string
+}
+
 variable "module_name" {
   description = "Name of the python module where the handler function lives"
   default     = ""
@@ -14,11 +23,7 @@ variable "description" {
 variable "environment_variables" {
   description = "Environment variables to pass to the Lambda"
   type        = map(string)
-
-  # environment cannot be empty so we need to pass at least one value
-  default = {
-    EMPTY_VARIABLE = ""
-  }
+  default = {}
 }
 
 variable "timeout" {
@@ -26,17 +31,6 @@ variable "timeout" {
   default     = 3
 }
 
-variable "filename" {
-  type    = string
-  default = ""
-}
-
 variable "memory_size" {
   default = 2048
-}
-
-variable "log_retention_in_days" {
-  description = "The number of days to keep CloudWatch logs"
-  type        = number
-  default     = 7
 }
