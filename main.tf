@@ -9,27 +9,23 @@ provider "aws" {
 module "lambda" {
   source = "./lambda"
 
-  runtime = "python3.9"
+  runtime = "python3.10"
 
-  name        = "clean-up-wc-assets-workingstorage-miro"
+  name        = "example-lambda-function"
   module_name = "main"
-  description = "A temporary Lambda created by Alex to help clean up s3://wellcomecollection-assets-workingstorage/miro"
+  description = "A Lambda function created to demo this module"
 
   timeout = 600
 
   source_dir = "${path.module}/src"
 }
 
-data "aws_iam_policy_document" "s3_assets" {
-  statement {
-    actions = [
-      "s3:*",
-    ]
+output "next_steps" {
+  value = <<EOT
+Your new function has been created!
 
-    resources = [
-      "arn:aws:s3:::wellcomecollection-assets-workingstorage/miro/*",
-    ]
-  }
+For instructions on deploying new code, open ${module.lambda.readme_path} in your browser
+EOT
 }
 
 resource "aws_iam_role_policy" "s3_editorial" {
@@ -51,9 +47,4 @@ data "aws_iam_policy_document" "s3_editorial" {
       "arn:aws:s3:::wellcomecollection-storage/miro/*",
     ]
   }
-}
-
-resource "aws_iam_role_policy" "s3_assets" {
-  role   = module.lambda.role_name
-  policy = data.aws_iam_policy_document.s3_assets.json
 }

@@ -17,3 +17,7 @@ output "role_name" {
   description = "Name of the IAM role for this Lambda"
   value       = aws_iam_role.iam_role.name
 }
+
+output "readme_path" {
+  value = local_file.readme.filename
+}

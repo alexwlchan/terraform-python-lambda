@@ -14,7 +14,7 @@ resource "local_file" "readme" {
       queue_arn = aws_sqs_queue.output.arn
       queue_name = aws_sqs_queue.output.name
 
-      log_group_name =replace(aws_cloudwatch_log_group.cloudwatch_log_group.name, "/", "$252")
+      log_group_name =replace(aws_cloudwatch_log_group.cloudwatch_log_group.name, "/", "$252F")
     }
   )
 
