@@ -6,3 +6,5 @@ terraform.plan
 __pycache__
 
 .DS_Store
+
+README.html
