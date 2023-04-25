@@ -11,7 +11,7 @@ module "lambda" {
 
   runtime = "python3.10"
 
-  name        = "example-lambda-function"
+  name        = "my-fortnightly-review-lambda-function"
   module_name = "main"
   description = "A Lambda function created to demo this module"
 
@@ -21,11 +21,7 @@ module "lambda" {
 }
 
 output "next_steps" {
-  value = <<EOT
-Your new function has been created!
-
-For instructions on deploying new code, open ${module.lambda.readme_path} in your browser
-EOT
+  value = module.lambda.next_steps
 }
 
 resource "aws_iam_role_policy" "s3_editorial" {

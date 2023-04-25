@@ -18,6 +18,10 @@ output "role_name" {
   value       = aws_iam_role.iam_role.name
 }
 
-output "readme_path" {
-  value = local_file.readme.filename
+output "next_steps" {
+  value = <<EOT
+Your new function has been created!
+
+For instructions on deploying new code, open ${local_file.readme.filename} in your browser
+EOT
 }
