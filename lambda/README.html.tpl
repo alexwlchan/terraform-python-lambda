@@ -11,7 +11,7 @@
         max-width: 800px;
         margin-left:  auto;
         margin-right: auto;
-        background: #fff9e6;
+        background: #323232;
         font-family: -apple-system, sans-serif;
         line-height: 1.5em;
       }
@@ -21,7 +21,8 @@
         background: #e8e8e8;
         padding: 10px;
         overflow: scroll;
-        border-radius: 10px;
+        border-radius: 5px;
+        border: 2px solid #d9d9d9;
       }
 
       main {
@@ -34,6 +35,16 @@
       a {
         color: black;
         font-weight: bold;
+      }
+
+      a.aws_orange {
+        fill: #D45B07;
+        color: #D45B07;
+      }
+
+      a.aws_pink {
+        fill: #B0084D;
+        color: #B0084D;
       }
     </style>
   </head>
@@ -76,7 +87,7 @@
           </g>
       	</svg>
 
-        <text x="60" y="24" dy="-4"><a href="https://${region}.console.aws.amazon.com/sns/v3/home?region=${region}#/topic/${topic_arn}">${topic_name}</a></text>
+        <text x="60" y="24" dy="-4"><a href="https://${region}.console.aws.amazon.com/sns/v3/home?region=${region}#/topic/${topic_arn}" class="aws_pink">${topic_name}</a></text>
       	<text x="60" y="24" dy=" 8">(SNS topic)</text>
 
         <marker id="arrowhead" markerWidth="7" markerHeight="4.9" refX="0" refY="2.45" orient="auto">
@@ -92,10 +103,10 @@
         <path d="M 44 154 L 63 173" stroke="black"
         stroke-width="1.75" fill="none"  marker-end="url(#arrowhead)" />
 
-        <text x="135" y="203" dy="-4"><a href='https://${region}.console.aws.amazon.com/cloudwatch/home?region=eu-west-1#logsV2:log-groups/log-group/${replace(log_group_name, "/", "$252F")}'>${log_group_name}</a></text>
+        <text x="135" y="203" dy="-4"><a href='https://${region}.console.aws.amazon.com/cloudwatch/home?region=eu-west-1#logsV2:log-groups/log-group/${replace(log_group_name, "/", "$252F")}' class="aws_pink">${log_group_name}</a></text>
       	<text x="135" y="203" dy=" 8">(CloudWatch log group)</text>
 
-        <text x="60" y="129" dy="-4"><a href="https://${region}.console.aws.amazon.com/lambda/home?region=${region}#/functions/${name}?tab=code">${name}</a></text>
+        <text x="60" y="129" dy="-4"><a href="https://${region}.console.aws.amazon.com/lambda/home?region=${region}#/functions/${name}?tab=code" class="aws_orange">${name}</a></text>
       	<text x="60" y="129" dy=" 8">(Lambda function)</text>
 
 
@@ -105,7 +116,7 @@
           </g>
       	</svg>
 
-        <text x="60" y="273" dy="-4"><a href="https://${region}.console.aws.amazon.com/sqs/v2/home?region=${region}#/queues/https%3A%2F%2Fsqs.${region}.amazonaws.com%2F760097843905%2F${queue_name}">${queue_name}</a></text>
+        <text x="60" y="273" dy="-4"><a href="https://${region}.console.aws.amazon.com/sqs/v2/home?region=${region}#/queues/https%3A%2F%2Fsqs.${region}.amazonaws.com%2F760097843905%2F${queue_name}" class="aws_pink">${queue_name}</a></text>
       	<text x="60" y="273" dy=" 8">(SQS queue)</text>
 
       	<svg x="75" y="179">
