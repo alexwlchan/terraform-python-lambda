@@ -11,7 +11,7 @@ def send_message_to_queue(message):
     sqs.send_message(QueueUrl=queue_url, MessageBody=message)
 
 
-def process_message_from_sns(message):
+def process_message_from_sns(message: dict):
     print(f"Received message: {message!r}")
     send_message_to_queue(message=f"Successfully processed message {message!r}")
 
