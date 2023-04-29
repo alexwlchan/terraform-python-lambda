@@ -4,7 +4,7 @@ import os
 import boto3
 
 
-def send_message_to_queue(message):
+def send_message_to_queue(message: str):
     sqs = boto3.client("sqs")
     queue_url = os.environ["QUEUE_URL"]
 
