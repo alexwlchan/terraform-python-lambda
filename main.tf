@@ -15,7 +15,8 @@ module "lambda" {
   module_name = "main"
   description = "A Lambda function created to demo this module"
 
-  timeout = 600
+  memory_size = 256
+  timeout     = 600
 
   source_dir = "${path.module}/src"
 }
